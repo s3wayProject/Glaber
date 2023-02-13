@@ -95,6 +95,7 @@ clickhouse-client --password --multiquery < history.sql
 
 # Настройка Glaber (загружаем файл и корректируем при необходимости)
 cd /etc/zabbix/
+                                                       
 wget https://github.com/s3wayProject/Glaber/raw/main/etc/zabbix/zabbix_server.conf
 
 # Дополнительные права на запуск
