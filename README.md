@@ -26,14 +26,14 @@ apt install glaber-server-pgsql glaber-nginx-conf glaber-frontend-php php7.4-pgs
 
 cd /
 sudo -u postgres createuser --pwprompt zabbix
-Enter password for new role: glabbix
-Enter it again: glabbix
+Enter password for new role: <password>
+Enter it again: <password>
 
 sudo -u postgres createdb -O zabbix zabbix
 
 zcat /usr/share/doc/zabbix-server-pgsql/create.sql.gz | sudo -u zabbix psql zabbix
 
-#Конфигурим настройки сервера
+# Конфигурим настройки сервера
 nano /etc/zabbix/nginx.conf
 server {
         listen          80;
@@ -41,7 +41,7 @@ server {
 
 unlink /etc/nginx/sites-enabled/default
 
-#Clickhouse
+# Clickhouse
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 8919F6BD2B48D754
 
 echo "deb https://packages.clickhouse.com/deb stable main" | sudo tee \
@@ -49,9 +49,7 @@ echo "deb https://packages.clickhouse.com/deb stable main" | sudo tee \
 
 apt update
 apt install clickhouse-server clickhouse-client
-Enter password for default user:glabbix
-
-SNAPSHOT SNAPSHOT SNAPSHOT SNAPSHOT
+Enter password for default user:<password>
 
 # Тюнинг Clickhouse
 mkdir /etc/clickhouse-server/config.d/
@@ -74,7 +72,7 @@ clickhouse-client --password --multiquery < history.sql
 cd /etc/zabbix/
 wget https://gitlab.com/
 
-#Дополнительные права на запуск
+# Дополнительные права на запуск
 chmod +s /usr/sbin/glbmap
 mkdir /tmp/vcdump/
 chmod 777 /tmp/vcdump/
@@ -98,6 +96,6 @@ http://127.0.0.1:43048/setup.php
 cd etc/zabbix/web/
 wget https://github.com/s3wayProject/Glaber/raw/main/etc/zabbix/web/zabbix.conf.php
 
-#добавим файл
+# Добавим файл
 cd /etc/php/7.4/fpm/conf.d/
 wget https://github.com/s3wayProject/Glaber/raw/main/etc/php/7.4/fpm/conf.d/99-zabbix.ini
