@@ -53,14 +53,23 @@ Enter password for default user:<password>
 
 # Тюнинг Clickhouse
 mkdir /etc/clickhouse-server/config.d/
+
 cd /etc/clickhouse-server/config.d/
+
 wget https://github.com/s3wayProject/Glaber/raw/main/etc/clickhouse-server/conf.d/disable_empty_password.xml
+
 wget https://github.com/s3wayProject/Glaber/raw/main/etc/clickhouse-server/conf.d/disable_metric_logs.xml
+
 wget https://github.com/s3wayProject/Glaber/raw/main/etc/clickhouse-server/conf.d/disable_query_thread_log.xml
+
 wget https://github.com/s3wayProject/Glaber/raw/main/etc/clickhouse-server/conf.d/metrika.xml
+
 wget https://github.com/s3wayProject/Glaber/raw/main/etc/clickhouse-server/conf.d/part_log.xml
+
 wget https://github.com/s3wayProject/Glaber/raw/main/etc/clickhouse-server/conf.d/query_log.xml
+
 wget https://github.com/s3wayProject/Glaber/raw/main/etc/clickhouse-server/conf.d/enable_on_disk_operations.xml
+
 
 
 # Настройка БД Clickhouse для Glaber
